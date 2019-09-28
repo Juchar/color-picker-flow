@@ -6,11 +6,13 @@ import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.HasTheme;
 import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.dependency.HtmlImport;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 import java.awt.Color;
 
 @Tag("color-picker")
-@HtmlImport("bower_components/color-picker/color-picker.html")
+@NpmPackage(value = "@appreciated/color-picker", version = "2.0.0-alpha.2")
+@JsModule("@appreciated/color-picker/color-picker.js")
 public class ColorPicker extends AbstractSinglePropertyField<ColorPicker, Color>
     implements ColorPickerBaseColor, HasStyle, Focusable<ColorPicker>, HasTheme, HasSize {
 
