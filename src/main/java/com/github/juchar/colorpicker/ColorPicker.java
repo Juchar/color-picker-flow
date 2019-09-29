@@ -1,47 +1,44 @@
 package com.github.juchar.colorpicker;
 
-import com.vaadin.flow.component.AbstractSinglePropertyField;
-import com.vaadin.flow.component.Focusable;
-import com.vaadin.flow.component.HasSize;
-import com.vaadin.flow.component.HasStyle;
-import com.vaadin.flow.component.HasTheme;
-import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.*;
+import com.vaadin.flow.component.dependency.JavaScript;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
-import java.awt.Color;
+
+import java.awt.*;
 
 @Tag("color-picker")
-@NpmPackage(value = "@appreciated/color-picker", version = "2.0.0-alpha.2")
+@NpmPackage(value = "@appreciated/color-picker", version = "2.0.0-alpha.9")
 @JsModule("@appreciated/color-picker/color-picker.js")
 public class ColorPicker extends AbstractSinglePropertyField<ColorPicker, Color>
-    implements ColorPickerBaseColor, HasStyle, Focusable<ColorPicker>, HasTheme, HasSize {
+        implements ColorPickerBaseColor, HasStyle, Focusable<ColorPicker>, HasTheme, HasSize {
 
-  /**
-   * Constructs an empty {@code ColorPicker}.
-   */
-  public ColorPicker() {
-    this(null, null);
-  }
+    /**
+     * Constructs an empty {@code ColorPicker}.
+     */
+    public ColorPicker() {
+        this(null, null);
+    }
 
-  /**
-   * Constructs a {@code ColorPicker} with an initial value.
-   *
-   * @param initialValue the initial value
-   */
-  public ColorPicker(Color initialValue) {
-    this(initialValue, null);
-  }
+    /**
+     * Constructs a {@code ColorPicker} with an initial value and a previous value.
+     *
+     * @param initialValue  the initial value
+     * @param previousValue the previous value
+     */
+    public ColorPicker(Color initialValue, Color previousValue) {
+        super("value", null, String.class,
+                ColorPickerBaseColor.PRESENTATION_TO_MODEL, ColorPickerBaseColor.MODEL_TO_PRESENTATION);
+        setValue(initialValue);
+        setPreviousValue(previousValue);
+    }
 
-  /**
-   * Constructs a {@code ColorPicker} with an initial value and a previous value.
-   *
-   * @param initialValue the initial value
-   * @param previousValue the previous value
-   */
-  public ColorPicker(Color initialValue, Color previousValue) {
-    super("value", null, String.class,
-        ColorPickerBaseColor.PRESENTATION_TO_MODEL, ColorPickerBaseColor.MODEL_TO_PRESENTATION);
-    setValue(initialValue);
-    setPreviousValue(previousValue);
-  }
+    /**
+     * Constructs a {@code ColorPicker} with an initial value.
+     *
+     * @param initialValue the initial value
+     */
+    public ColorPicker(Color initialValue) {
+        this(initialValue, null);
+    }
 }
