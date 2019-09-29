@@ -1,14 +1,13 @@
 package com.github.juchar.colorpicker;
 
 import com.vaadin.flow.component.*;
-import com.vaadin.flow.component.dependency.JavaScript;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 import java.awt.*;
 
 @Tag("color-picker")
-@NpmPackage(value = "@appreciated/color-picker", version = "2.0.0-alpha.9")
+@NpmPackage(value = "@appreciated/color-picker", version = "2.0.0-beta.1")
 @JsModule("@appreciated/color-picker/color-picker.js")
 public class ColorPicker extends AbstractSinglePropertyField<ColorPicker, Color>
         implements ColorPickerBaseColor, HasStyle, Focusable<ColorPicker>, HasTheme, HasSize {
